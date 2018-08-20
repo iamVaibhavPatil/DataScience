@@ -21,4 +21,6 @@ Data Science and Machine learning using Python. We will explore different tools 
     - Neural Nets and Deep Learning  
 
 # Envrionment Setup  
-Anaconda Download and Install
+Anaconda Download and Install.
+
+# Python
