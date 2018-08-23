@@ -23,4 +23,4 @@ Data Science and Machine learning using Python. We will explore different tools 
 # Envrionment Setup  
 Anaconda Download and Install.
 
-# Python
+# Python for Data Analysis - NumPy
