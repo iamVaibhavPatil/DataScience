@@ -159,3 +159,59 @@ np.random.randint(1,100)
 np.random.randint(1,100,5)
 >>> array([55, 80, 55, 43, 22])
 ```
+
+**Attributes and methods on array**  
+
+`reshape`- Reshape existing array to new dimension.
+
+```
+arr = np.arange(25)
+arr
+>>>
+array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
+       17, 18, 19, 20, 21, 22, 23, 24])
+
+arr.reshape(5,5)
+>>>
+array([[ 0,  1,  2,  3,  4],
+       [ 5,  6,  7,  8,  9],
+       [10, 11, 12, 13, 14],
+       [15, 16, 17, 18, 19],
+       [20, 21, 22, 23, 24]])
+```
+
+`max()` - Max value in array  
+`min()` - Min value in array  
+`argmax()` - Index of Max value in array  
+`argmin` - Index of Min value in array  
+`shape` - Returns Shape of array  
+`dtype` - Datatype in array  
+
+```
+ranarr = np.random.randint(0,50,10)
+ranarr
+>>>
+array([26,  5, 11, 36, 23,  6,  2,  5, 15, 47])
+
+ranarr.max()
+>>> 47
+
+ranarr.min()
+>>> 2
+
+ranarr.argmax()
+>>> 9
+
+ranarr.argmin()
+>>> 6
+
+arr.shape
+
+arr.dtype
+>>>
+dtype('int32')
+
+from numpy.random import randint
+randint(2,10)
+>>> 3
+```
