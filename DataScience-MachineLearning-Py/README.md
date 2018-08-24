@@ -215,3 +215,75 @@ from numpy.random import randint
 randint(2,10)
 >>> 3
 ```
+
+## NumPy Array Indexing  
+Array indexing starts at 0 in NumPy, similar to Python indexing.
+
+```
+import numpy as np
+arr = np.arange(0,11)
+arr
+>>> array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10])
+
+arr[8]
+>>> 8
+
+arr[0:5]
+>>> array([0, 1, 2, 3, 4])
+
+# FROM START TO UPTO INDEX BUT Not Inclusive
+arr[:6]
+>>> array([0, 1, 2, 3, 4, 5])
+
+# FROM INDEX TO REST OF ARRAY
+arr[5:]
+>>> array([ 5,  6,  7,  8,  9, 10])
+```
+
+NumPy array differs from Python list, because of their ability to broadcast. When we slice or take some elements from original arrays and make change in them, then it changes the original arrays as well. It is just a view of original array not the copy.
+
+In order to create a copy of array, we need to use copy method on array.
+
+```
+arr
+>>>
+array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10])
+
+slice_arr = arr[0:5]
+slice_arr
+>>>
+array([0, 1, 2, 3, 4])
+
+# BROADCAST to 99
+slice_arr[:] = 99
+
+slice_arr
+>>>
+array([99, 99, 99, 99, 99])
+
+#Original array is changed.
+arr
+>>> 
+array([99, 99, 99, 99, 99,  5,  6,  7,  8,  9, 10])
+```
+
+Here original array is changed because of change in the slice array. This is because, it is only view to original array, not the copy of the array.
+
+We could use `arr.copy()` method to get copy, so that original array will not be affected when we make changes in sliced or copied array.
+
+```
+arr
+>>> array([99, 99, 99, 99, 99,  5,  6,  7,  8,  9, 10])
+
+arr_copy = arr.copy()
+arr_copy
+>>> array([99, 99, 99, 99, 99,  5,  6,  7,  8,  9, 10])
+
+arr_copy[:] = 100
+arr_copy
+>>> array([100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100])
+
+arr
+>>> array([99, 99, 99, 99, 99,  5,  6,  7,  8,  9, 10])
+```
+
