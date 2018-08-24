@@ -327,3 +327,29 @@ arr_2d[1:,:2]
 array([[20, 25],
        [35, 40]])
 ```
+
+Comparision operator on the array will return the boolean array.
+
+```
+arr = np.arange(1,11)
+arr
+>>> array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10])
+
+bool_arr = arr > 5
+bool_arr
+>>>
+array([False, False, False, False, False,  True,  True,  True,  True,
+        True])
+
+# Now we can filter the original array
+arr[bool_arr]
+>>> array([ 6,  7,  8,  9, 10])
+
+
+# In practice, we will do as below instead of all above steps. They are same steps, but in shorthand
+arr[arr > 5]
+>>> array([ 6,  7,  8,  9, 10])
+
+arr[arr < 3]
+>>> array([1, 2])
+```
