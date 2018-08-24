@@ -24,3 +24,22 @@ Data Science and Machine learning using Python. We will explore different tools 
 Anaconda Download and Install.
 
 # Python for Data Analysis - NumPy
+Numpy is a Linear Algebra library for Python. It is so important for Data Science with Python is that almost all of the libraries in the PyData Ecosystem rely on Numpy as one of their main building blocks.
+
+NumPy is also incredibly fast, as it has bindings to C libraries.
+
+If we have Anaconda distribution, we can install NumPy by executing below command-
+
+```
+# Recommended if Anaconda is installed.
+conda install numpy
+
+# Using Python, if no Anaconda distribution
+pip install numpy
+```
+
+NumPy arrays come in two flavors: `Vectors` and `Matrices`.  
+
+Vectors are strictly 1-d arrays and matrices are 2-d(matrix can have only one row or column)
+
+## NumPy Arrays
