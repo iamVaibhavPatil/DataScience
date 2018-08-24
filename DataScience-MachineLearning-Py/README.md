@@ -38,8 +38,84 @@ conda install numpy
 pip install numpy
 ```
 
+## NumPy Arrays  
 NumPy arrays come in two flavors: `Vectors` and `Matrices`.  
 
-Vectors are strictly 1-d arrays and matrices are 2-d(matrix can have only one row or column)
+Vectors are strictly 1-d arrays and matrices are 2-d(matrix can have only one row or column).
 
-## NumPy Arrays
+We can convert existing list or list of list into 1-d or 2-d array respectively.
+
+```
+my_list = [1,2,3]
+
+import numpy as np
+
+# 1-d array
+arr = np.array(my_list)
+arr
+>>> array([1, 2, 3])
+
+# 2-d Array
+my_mat = [[1,2,3],[4,5,6],[7,8,9]]
+np.array(my_mat)
+>>>
+array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
+```
+
+Most common way to create numpy array is using `arange(start, stop, step)`. It is similar to `range()` function in python.
+
+```
+np.arange(0,11)
+>>> array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10])
+
+np.arange(0,11,2)
+>>> array([ 0,  2,  4,  6,  8, 10])
+```
+
+We can also create specific array like arrays with all zero values by specifying number of rows or columns.
+
+`zeros(number of elements)` for 1-d arrays  
+`zeros((rows, columns))` for 2-d arrays
+
+```
+np.zeros(3)
+>>> array([0., 0., 0.])
+
+np.zeros((3,3))
+>>> array([[0., 0., 0.],
+       [0., 0., 0.],
+       [0., 0., 0.]])
+```
+
+Similarly `ones` for arrays with all 1.
+
+```
+np.ones(4)
+>>> array([1., 1., 1., 1.])
+
+np.ones((2,3))
+>>> array([[1., 1., 1.],
+       [1., 1., 1.]])
+```
+
+`linspace(start, stop, num)` - This will return `evenly spaced` num of points within start to stop range.
+
+```
+np.linspace(0,5,10)
+>>>
+array([0.        , 0.55555556, 1.11111111, 1.66666667, 2.22222222,
+       2.77777778, 3.33333333, 3.88888889, 4.44444444, 5.        ])
+```
+
+We can also create `identity matrix`. Identity matrix is used in linear algebra. Number of rows and columns are equal. All diagonal elements are 1 and others are 0.
+
+```
+np.eye(4)
+>>>
+array([[1., 0., 0., 0.],
+       [0., 1., 0., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 0., 1.]])
+```
