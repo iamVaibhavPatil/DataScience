@@ -287,3 +287,43 @@ arr
 >>> array([99, 99, 99, 99, 99,  5,  6,  7,  8,  9, 10])
 ```
 
+In 2-dimensional array, we have 2 ways to grab the element using index.
+
+```
+arr_2d = np.array([[5,10,15],[20,25,30],[35,40,45]])
+arr_2d
+
+>>>
+array([[ 5, 10, 15],
+       [20, 25, 30],
+       [35, 40, 45]])
+
+arr_2d[0][1]  # Using Double Bracket
+>>> 10
+
+arr_2d[0,1]   # Using Single Bracket
+>>> 10
+```
+
+We can grab sub matrices using colon(:) same as array indexing.
+
+```
+array([[ 5, 10, 15],
+       [20, 25, 30],
+       [35, 40, 45]])
+
+arr_2d[1:]
+>>>
+array([[20, 25, 30],
+       [35, 40, 45]])
+
+arr_2d[:2,1:]
+>>>
+array([[10, 15],
+       [25, 30]])
+
+arr_2d[1:,:2]
+>>>
+array([[20, 25],
+       [35, 40]])
+```
