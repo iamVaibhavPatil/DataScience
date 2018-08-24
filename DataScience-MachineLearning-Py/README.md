@@ -77,7 +77,7 @@ np.arange(0,11,2)
 We can also create specific array like arrays with all zero values by specifying number of rows or columns.
 
 `zeros(number of elements)` for 1-d arrays  
-`zeros((rows, columns))` for 2-d arrays
+`zeros((rows, columns))` for 2-d arrays. Pass tuple of rows and columns.
 
 ```
 np.zeros(3)
@@ -89,7 +89,7 @@ np.zeros((3,3))
        [0., 0., 0.]])
 ```
 
-Similarly `ones` for arrays with all 1.
+Similarly, `ones` for arrays with all 1.
 
 ```
 np.ones(4)
@@ -100,7 +100,7 @@ np.ones((2,3))
        [1., 1., 1.]])
 ```
 
-`linspace(start, stop, num)` - This will return `evenly spaced` num of points within start to stop range.
+`linspace(start, stop, num)`- This will return `evenly spaced` num of points within start to stop range.
 
 ```
 np.linspace(0,5,10)
@@ -118,4 +118,44 @@ array([[1., 0., 0., 0.],
        [0., 1., 0., 0.],
        [0., 0., 1., 0.],
        [0., 0., 0., 1.]])
+```
+
+Arrays of random elements.
+
+```
+np.random.rand(3,4)
+>>>
+array([[0.80940006, 0.9859906 , 0.26152869, 0.98569846],
+       [0.5094053 , 0.22883829, 0.62847165, 0.27576971],
+       [0.98594542, 0.38165645, 0.0266356 , 0.30627481]])
+```
+
+If we want to return sample array with `standard normal distribution` or `Gaussian distribution`, we can use `randn`.
+
+This will return numbers from standard distribution centered around 0 instead of uniform distribution from 0 to 1.
+
+```
+np.random.randn(2)
+>>>
+array([0.62264086, 0.55017301])
+
+np.random.randn(4,4)
+>>>
+array([[-0.34059302,  1.14487483,  2.22898505, -0.88188641],
+       [-1.74616441, -0.10110956, -0.38235507, -0.69916654],
+       [-0.79018516, -1.02698109,  0.12468266, -1.51640138],
+       [ 0.78902964, -0.59662587,  0.26986646, -0.62834846]])
+```
+
+We can plot this numbers using data visualization.
+
+`randint`- Returns random integers from low to a high number.
+
+```
+np.random.randint(1,100)
+>>> 77
+
+# Get 5 random from 1 to 100- Inclusive of 1 and exclusive to 100.
+np.random.randint(1,100,5)
+>>> array([55, 80, 55, 43, 22])
 ```
