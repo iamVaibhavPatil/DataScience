@@ -435,3 +435,121 @@ pip install pandas
 ```
 
 ## Series
+Series is similar to NumPy array. It is built on the top of NumPy array object. In Series we access data by labels instead of index as we do in arrays.
+
+We can create Series using list, numpy arrays, dictionaries and can assign labels as well.
+
+Series can hold any type of data.
+
+```
+import numpy as np
+import pandas as pd
+
+# CREATE 4 Different DataTypes
+labels = ['a','b','c']
+my_data = [10,20,30]
+arr = np.array(my_data)
+d = {'a':10,'b':20,'c':30}
+
+# HERE SERIES WILL ASSIGN DEFAULT INDEX
+pd.Series(data = my_data)
+>>>
+0    10
+1    20
+2    30
+dtype: int64
+
+# WE CAN ASSIGN LABELS TO THE SERIES
+pd.Series(data=my_data, index=labels)
+>>>
+a    10
+b    20
+c    30
+dtype: int64
+
+# WE CAN PASS IN ORDER INSTEAD OF ASSIGNMENTS
+pd.Series(my_data,labels)
+>>>
+a    10
+b    20
+c    30
+dtype: int64
+
+# CREATE SERIES FROM NUMPY ARRAYS
+pd.Series(arr)
+>>>
+0    10
+1    20
+2    30
+dtype: int32
+
+# ASSIGN LABELS
+pd.Series(arr, labels)
+>>>
+a    10
+b    20
+c    30
+dtype: int32
+
+# CREATE SERIES FROM DICTIONARIES
+pd.Series(d)
+>>>
+a    10
+b    20
+c    30
+dtype: int64
+
+# SERIES CAN HOLD ANY TYPE OF DATA
+pd.Series(data=labels)
+>>>
+0    a
+1    b
+2    c
+dtype: object
+```
+
+Grabbing information out of series looks similar to getting it from dictionaries. Padas builds series similar to hashtable. Lookups are very fast.
+
+```
+ser1 = pd.Series([1,2,3,4],['USA','Germany','USSR','Japan'])
+ser1
+>>>
+USA        1
+Germany    2
+USSR       3
+Japan      4
+dtype: int64
+
+ser2 = pd.Series([1,2,5,4],['USA','Germany','Italy','Japan'])
+ser2
+>>>
+USA        1
+Germany    2
+Italy      5
+Japan      4
+dtype: int64
+
+ser1['USA']
+>>> 1
+
+ser3 = pd.Series(data=labels)
+ser3
+>>>
+0    a
+1    b
+2    c
+dtype: object
+
+ser3[1]
+>>> 'b'
+
+# OPERATION ON SERIES. IT WILL ADD VALUES FROM BOTH SERIES. WHICHEVER IS NOT MATCHED WILL RETURN NaN.
+ser1 + ser2
+>>>
+Germany    4.0
+Italy      NaN
+Japan      8.0
+USA        2.0
+USSR       NaN
+dtype: float64
+```
