@@ -576,3 +576,126 @@ C	-2.018168	0.740122	0.528813	-0.589001
 D	0.188695	-0.758872	-0.933237	0.955057
 E	0.190794	1.978757	2.605967	0.683509
 ```
+Each of these columns is a series. So, W,X,Y,Z is a series with A,B,C,D,E index.
+
+```
+df['W']
+>>>
+A    2.706850
+B    0.651118
+C   -2.018168
+D    0.188695
+E    0.190794
+Name: W, dtype: float64
+
+type(df['W'])
+>>> pandas.core.series.Series
+
+type(df)
+>>> pandas.core.frame.DataFrame
+
+# WE CAN GRAB SERIES AS BELOW AS WELL.
+df.W
+>>>
+A    2.706850
+B    0.651118
+C   -2.018168
+D    0.188695
+E    0.190794
+Name: W, dtype: float64
+```
+
+We can also get multiple columns from DataFrame. If we get single column, it will return a `Series`, but if we ask for multiple columns, we will get `DataFrame`.
+
+```
+# PASS MULTIPLE COLUMNS AS LIST
+df[['W','Z']]
+>>>
+
+    W	        Z
+A	2.706850	0.503826
+B	0.651118	0.605965
+C	-2.018168	-0.589001
+D	0.188695	0.955057
+E	0.190794	0.683509
+```
+
+We can create new column using existing columns as below-
+
+```
+# CREATE NEW COLUMN AS ADDITION OF OTHER 2
+df['new'] = df['W'] + df['Y']
+df
+>>>
+    W	        X	        Y	        Z	        new
+A	2.706850	0.628133	0.907969	0.503826	3.614819
+B	0.651118	-0.319318	-0.848077	0.605965	-0.196959
+C	-2.018168	0.740122	0.528813	-0.589001	-1.489355
+D	0.188695	-0.758872	-0.933237	0.955057	-0.744542
+E	0.190794	1.978757	2.605967	0.683509	2.796762
+```
+
+We can also remove columsn using `drop` method on DataFrames. When we drop column from DataFrame, by default it will not drop from original DataFrame, we have to sepcify that to drop `inplace=True` to drop from DataFrame.
+We also have to sepcify the axis=1 for dropping column.
+
+```
+df.drop('new', axis=1, inplace=True)
+df
+>>>
+
+    W	        X	        Y	        Z
+A	2.706850	0.628133	0.907969	0.503826
+B	0.651118	-0.319318	-0.848077	0.605965
+C	-2.018168	0.740122	0.528813	-0.589001
+D	0.188695	-0.758872	-0.933237	0.955057
+E	0.190794	1.978757	2.605967	0.683509
+```
+
+We can also drop the row. We dont need to specify axis for dropping row, as default axis=0.
+
+```
+df.drop('E')
+>>>
+    W	        X	        Y	        Z
+A	2.706850	0.628133	0.907969	0.503826
+B	0.651118	-0.319318	-0.848077	0.605965
+C	-2.018168	0.740122	0.528813	-0.589001
+D	0.188695	-0.758872	-0.933237	0.955057
+```
+
+DataFrames are just fancy index markers on the top of NumPy array. Rows are refered as axis=0 and columns are referred as axis=1, because when we do `df.shape`, it will return a tuple (5,4), so we have 5 rows and 4 columns and there index is 0 and respectively.
+
+When selecting columns, we pass the list of columns or single column name. When selecting rows, we can do this 2 ways.
+
+`df.loc['A']` - This will returns series. So it confirms not only columns are series but rows are also series in pandas.  
+`df.iloc[0]` - This will grab series based on the index location.
+
+```
+df.loc['A']
+>>>
+W    0.302665
+X    1.693723
+Y   -1.706086
+Z   -1.159119
+Name: A, dtype: float64
+
+df.iloc[0]
+>>>
+W    0.302665
+X    1.693723
+Y   -1.706086
+Z   -1.159119
+Name: A, dtype: float64
+
+# SELECTING PERTICULAR CELL - row and column
+df.loc['B','Y']
+>>> 0.16690463609281317
+
+# GET SUBSET OF DATA - PASS LIST OF rows and LIST OF columns
+df.loc[['A','B'],['W','Y']]
+>>>
+
+    W	        Y
+A	0.302665	-1.706086
+B	-0.134841	0.166905
+```
