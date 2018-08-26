@@ -1482,3 +1482,13 @@ sns.distplot(tips['total_bill'],kde=False,bins=40)
 # Plot below tells, most of the bills are between 10 and 20 dollars
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/distplot.png?raw=true "Plot")
+
+**jointplot** - Jointplot will join 2 columns and show the distribution against them. For example, we want to check distribution of tips against the total_bill.
+
+```
+# DISTRIBUTION OF TIPS on TOTAL_BILL
+# HIGHER THE BILL, HIGER THE TIPS.
+# kind - By Default scattared, hex, reg(linear regression), kde(density)
+sns.jointplot(x='total_bill',y='tip',data=tips,kind='hex')
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/joinplot.png?raw=true "Plot")
