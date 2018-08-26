@@ -1132,3 +1132,41 @@ df.sort_values(by='col2')
 1	2	    555	    def
 2	3	    666	    ghi
 ```
+
+**isnull()** - Return True if null, else False.
+```
+df.isnull()
+>>>
+    col1	col2	col3
+0	False	False	False
+1	False	False	False
+2	False	False	False
+3	False	False	False
+```
+
+**pivot_table** - create new multiindex DataFrame from the dataframe by specifying value, index, and columns in the new pivot_table.
+```
+data = {'A':['foo','foo','foo','bar','bar','bar'],
+        'B':['one','one','two','two','one','one'],
+        'C':['x','y','x','y','x','y'],
+        'D':[1,3,2,5,4,1]}
+df = pd.DataFrame(data)
+df
+>>>
+	A	B	C	D
+0	foo	one	x	1
+1	foo	one	y	3
+2	foo	two	x	2
+3	bar	two	y	5
+4	bar	one	x	4
+5	bar	one	y	1
+
+df.pivot_table(values='D',index=['A','B'], columns=['C'])
+>>>
+	C	x	y
+A	B		
+bar	one	4.0	1.0
+    two	NaN	5.0
+foo	one	1.0	3.0
+    two	2.0	NaN
+```
