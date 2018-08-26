@@ -1442,3 +1442,14 @@ ax.set_ylim([0,2])
 See the code
 
 # Python for Data Visualization - Seaborn
+Seaborn is a `statistical plotting` library and it is built on the top of matplotlib. It has beautiful default sytle. It is designed to work well with Pandas DataFrame objects.
+
+We can install using -
+
+```python
+conda install seaborn
+#OR
+pip install seaborn
+```
+
+### Distribution Plots
