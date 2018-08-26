@@ -1390,3 +1390,15 @@ ax = fig.add_axes([0,0,1,1])
 ax.plot(x,y)
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/04.Python-for-Data-Visualization-Matplotlib/plots/dpi.png?raw=true "Plot")
+```python
+# ADD LEGEND
+fig = plt.figure()
+
+ax = fig.add_axes([0,0,1,1])
+
+ax.plot(x,x**2,label='X Squared')
+ax.plot(x,x**3,label='X Cubed')
+
+ax.legend() # WE CAN PASS THE LOCATION NUMBER AS WELL
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/04.Python-for-Data-Visualization-Matplotlib/plots/legend.png?raw=true "Plot")
