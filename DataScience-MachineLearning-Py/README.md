@@ -1508,9 +1508,15 @@ sns.pairplot(tips,hue='sex',palette='coolwarm')
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/pairplot_hue.png?raw=true "Plot")
 
-**rugplot** - Similar to distplot but instead of histogram, it plot the rugs of the data.
+**rugplot** - Similar to distplot but instead of histogram, it plot the rug counts of the data.
 
 ```python
 sns.rugplot(tips['total_bill'])
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/rugplot.png?raw=true "Plot")
+
+**kde-kernal density estimation** - Kde plot has relationship with rugplot. It is based on the rug counts.
+```python
+sns.kdeplot(tips['total_bill'])
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/kde.png?raw=true "Plot")
