@@ -883,3 +883,50 @@ Groups	A	        B
 G1	    -0.993263	0.196800
 G2	    -0.031579	0.649826
 ```
+
+## Missing Data
+When we are working with Pandas and data, if the data is missing, then Pandas can fill in the data or drop columns or rows having missing values.
+
+`dropna()` - Drop rows having missing values.  
+`dropna(axis=1)` - Drop columns having missing values.  
+`fillna(value='FILL VALUE')` - Fill missing values with specified values
+
+```
+import numpy as np
+import pandas as pd
+d = {'A':[1,2,np.nan],'B':[5,np.nan,np.nan],'C':[1,2,3]}
+df = pd.DataFrame(d)
+df
+>>>
+    A	B	C
+0	1.0	5.0	1
+1	2.0	NaN	2
+2	NaN	NaN	3
+
+df.dropna()
+>>>
+    A	B	C
+0	1.0	5.0	1
+
+df.dropna(axis=1)
+>>>
+	C
+0	1
+1	2
+2	3
+
+# SET THRESHOLD IN ORDER TO DROP THE ROW OR COLUMN
+df.dropna(thresh=2)
+>>>
+    A	B	C
+0	1.0	5.0	1
+1	2.0	NaN	2
+
+#FILL MISSING VALUES
+df.fillna(value='FILL VALUE')
+>>>
+	A	        B	        C
+0	1	        5	        1
+1	2	        FILL VALUE	2
+2	FILL VALUE	FILL VALUE	3
+```
