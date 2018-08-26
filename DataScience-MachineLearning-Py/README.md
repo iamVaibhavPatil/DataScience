@@ -699,3 +699,63 @@ df.loc[['A','B'],['W','Y']]
 A	0.302665	-1.706086
 B	-0.134841	0.166905
 ```
+
+We can also do conditional selection on DataFrame. This is similar to the NumPy. When we do comparision operator, it will return True and False in the results.
+```
+df > 0
+>>>
+	W	    X	    Y	    Z
+A	True	True	False	False
+B	False	True	True	True
+C	True	True	True	True
+D	False	False	False	True
+E	False	True	True	True
+
+df[df>0]
+>>>
+	W	        X	        Y	        Z
+A	0.302665	1.693723	NaN	        NaN
+B	NaN	        0.390528	0.166905	0.184502
+C	0.807706	0.072960	0.638787	0.329646
+D	NaN	        NaN	        NaN	        0.484752
+E	NaN	        1.901755	0.238127	1.996652
+
+# GET CONDITIONAL ROW SELECTION
+df['W']>0
+>>>
+A     True
+B    False
+C     True
+D    False
+E    False
+```
+
+When we pass condition based on the columns, then we will get all filtered values which are True, we won't get any False value.
+
+```
+df[df['W']>0]
+>>>
+    W	        X	        Y	        Z
+A	0.302665	1.693723	-1.706086	-1.159119
+C	0.807706	0.072960	0.638787	0.329646
+
+df[df['Z']<0]
+>>>
+    W	        X	        Y	        Z
+A	0.302665	1.693723	-1.706086	-1.159119
+
+# COMBINE MULTIPLE FILTERS
+df[df['W']>0]['X']
+>>>
+A    1.693723
+C    0.072960
+Name: X, dtype: float64
+
+# Grab multiple columns
+df[df['W']>0][['X','Y']]
+>>>
+    X	        Y
+A	1.693723	-1.706086
+C	0.072960	0.638787
+```
+
