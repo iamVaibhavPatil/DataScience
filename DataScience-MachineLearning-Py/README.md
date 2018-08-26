@@ -759,3 +759,65 @@ A	1.693723	-1.706086
 C	0.072960	0.638787
 ```
 
+When we want to use logical operators to get results from multiple conditions, we can't use python `and` because python gets confused, as we pass series as input instead of single boolean values.
+
+We need to use and(`&`), or(`|`)
+
+```
+# This will return error as we are doing logical and with series, which creates ambiguous results.
+df[(df['W']>0) and (df['Y']>10)]
+
+# We need to use &
+df[(df['W']>0) & (df['Y']>0)]
+>>>
+	W	        X	    Y	        Z
+C	0.807706	0.07296	0.638787	0.329646
+
+df[(df['W']>0) | (df['Y']>0)]
+>>>
+    W	        X	        Y	        Z
+A	0.302665	1.693723	-1.706086	-1.159119
+B	-0.134841	0.390528	0.166905	0.184502
+C	0.807706	0.072960	0.638787	0.329646
+E	-0.116773	1.901755	0.238127	1.996652
+```
+
+
+Now lets take look at the reseting the index and seeting it's values. `df.reset_index()` will reset the index back to numbers and add index column for old values. It is not inplace operation. We need to specify explicitly to make it inplace.
+
+```
+df.reset_index()
+>>>
+    index	W	    X	        Y	        Z
+0	A	0.302665	1.693723	-1.706086	-1.159119
+1	B	-0.134841	0.390528	0.166905	0.184502
+2	C	0.807706	0.072960	0.638787	0.329646
+3	D	-0.497104	-0.754070	-0.943406	0.484752
+4	E	-0.116773	1.901755	0.238127	1.996652
+```
+
+We can also set the index to new values as below. We will create new column states and add it in the DataFrame.
+We will use `set_index(column_name)`-
+
+```
+newind = 'CA NY WY OR CO'.split()
+df['states'] = newind
+df
+>>>
+	W	        X	        Y	        Z	        states
+A	0.302665	1.693723	-1.706086	-1.159119	CA
+B	-0.134841	0.390528	0.166905	0.184502	NY
+C	0.807706	0.072960	0.638787	0.329646	WY
+D	-0.497104	-0.754070	-0.943406	0.484752	OR
+E	-0.116773	1.901755	0.238127	1.996652	CO
+
+df.set_index('States')
+>>>
+States  W	        X	        Y	        Z	        states					
+CA	    0.302665	1.693723	-1.706086	-1.159119	CA
+NY	    -0.134841	0.390528	0.166905	0.184502	NY
+WY	    0.807706	0.072960	0.638787	0.329646	WY
+OR	    -0.497104	-0.754070	-0.943406	0.484752	OR
+CO	    -0.116773	1.901755	0.238127	1.996652	CO
+```
+This will override the old index and add new one.
