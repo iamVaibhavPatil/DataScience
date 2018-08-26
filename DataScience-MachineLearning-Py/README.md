@@ -1422,3 +1422,23 @@ ax = fig.add_axes([0,0,1,1])
 ax.plot(x,y,color='purple',lw=3, ls='-',marker='o',markersize=10)
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/04.Python-for-Data-Visualization-Matplotlib/plots/plotstyle.png?raw=true "Plot")
+
+### Control over axis appearance
+
+```
+fig = plt.figure()
+
+ax = fig.add_axes([0,0,1,1])
+
+#CONTROL OVER AXIS APPEARANCE
+
+ax.plot(x,y,color='purple',lw=2, ls='--')
+ax.set_xlim([0,1])
+ax.set_ylim([0,2])
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/04.Python-for-Data-Visualization-Matplotlib/plots/axiscontrl.png?raw=true "Plot")
+
+## Matplotlib exercise
+See the code
+
+# Python for Data Visualization - Seaborn
