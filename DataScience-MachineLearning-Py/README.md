@@ -1488,7 +1488,7 @@ sns.distplot(tips['total_bill'],kde=False,bins=40)
 ```
 # DISTRIBUTION OF TIPS on TOTAL_BILL
 # HIGHER THE BILL, HIGER THE TIPS.
-# kind - By Default scattared, hex, reg(linear regression), kde(density)
-sns.jointplot(x='total_bill',y='tip',data=tips,kind='hex')
+# kind - By Default scatter, hex, reg(linear regression), kde(density)
+sns.jointplot(x='total_bill',y='tip',data=tips,kind='scatter')
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/joinplot.png?raw=true "Plot")
