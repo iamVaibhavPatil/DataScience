@@ -1170,3 +1170,111 @@ bar	one	4.0	1.0
 foo	one	1.0	3.0
     two	2.0	NaN
 ```
+
+## Data Input and Output
+Pandas has abilities to read or write data for wide variety of data sources like CSV, Excel, HTMl, SQL etc.
+In order to work with HTML and SQl, we need to install below libraries.
+
+```
+conda install sqlalchemy
+conda install lxml
+conda install html5lib
+conda install BeautifulSoup4
+```
+
+We can read data from `csv` files -
+
+```
+import pandas as pd
+
+pd.read_csv('example')
+>>>
+    a	b	c	d
+0	0	1	2	3
+1	4	5	6	7
+2	8	9	10	11
+3	12	13	14	15
+```
+
+In order to write to a file, we need DataFrame, so lets read and write.
+```
+df = pd.read_csv('example')
+df
+>>>
+    a	b	c	d
+0	0	1	2	3
+1	4	5	6	7
+2	8	9	10	11
+3	12	13	14	15
+
+# WRITE - WE DON'T WANT TO OUTPUT THE INDEX AS A COLUMN
+df.to_csv('My_output', index=False)
+```
+
+We can also read `excel` file. While reading excel, we dont read formulas and formating in the excel. We just do the data. Pandas considers each sheet as a DataFrame.
+
+```
+pd.read_excel('Excel_Sample.xlsx',sheet_name='Sheet1')
+>>>
+
+    a	b	c	d
+0	0	1	2	3
+1	4	5	6	7
+2	8	9	10	11
+3	12	13	14	15
+
+df.to_excel('Excel_Sample2.xlsx',sheet_name='NewSheet')
+pd.read_excel('Excel_Sample2.xlsx')
+>>>
+	a	b	c	d
+0	0	1	2	3
+1	4	5	6	7
+2	8	9	10	11
+3	12	13	14	15
+```
+
+For reading from `Html`, we need to install additional libraries. We will read data from Fedral government website for the failed banks- https://www.fdic.gov/bank/individual/failed/banklist.html
+
+Pandas basically tries to read the tables markings from the html page and store it in the `list`.
+
+```
+data = pd.read_html('https://www.fdic.gov/bank/individual/failed/banklist.html')
+
+# RETURNS list as it contains many tables
+type(data)
+>>> list
+
+# SHOW DATA
+data[0]
+>>>
+
+    Bank Name	City	ST	CERT	Acquiring Institution	Closing Date	Updated Date
+0	Washington Federal Bank for Savings	Chicago	IL	30570	Royal Savings Bank	December 15, 2017	February 21, 2018
+1	The Farmers and Merchants State Bank of Argonia	Argonia	KS	17719	Conway Bank	October 13, 2017	February 21, 2018
+2	Fayette County Bank	Saint Elmo	IL	1802	United Fidelity Bank, fsb	May 26, 2017	July 26, 2017
+```
+
+Read or writing data from `SQL`. We should always use Database specific SQL engine libray for connecting with specific Database and perform SQl for that flavor of DB.
+
+Here we will create simple sqlite engine and interact with it in memory.
+
+```
+from sqlalchemy import create_engine
+
+# CREATE SQLITE DATABASE RUNNING IN MEMORY
+engine = create_engine('sqlite:///:memory:')
+
+# WRITE TO A TABLE USING THE ENGINE
+df.to_sql('my_table',engine)
+
+# READ FROM THE DATABASE
+sqldf = pd.read_sql('my_table', con=engine)
+
+sqldf
+>>>
+	index	a	b	c	d
+0	0	    0	1	2	3
+1	1	    4	5	6	7
+2	2	    8	9	10	11
+3	3	    12	13	14	15
+```
