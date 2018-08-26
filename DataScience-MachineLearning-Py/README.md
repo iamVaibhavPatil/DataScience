@@ -1485,7 +1485,7 @@ sns.distplot(tips['total_bill'],kde=False,bins=40)
 
 **jointplot** - Jointplot will join 2 columns and show the distribution against them. For example, we want to check distribution of tips against the total_bill.
 
-```
+```python
 # DISTRIBUTION OF TIPS on TOTAL_BILL
 # HIGHER THE BILL, HIGER THE TIPS.
 # kind - By Default scatter, hex, reg(linear regression), kde(density)
