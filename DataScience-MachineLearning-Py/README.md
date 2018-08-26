@@ -1321,5 +1321,15 @@ y
 # FUNCTIONAL
 plt.plot(x,y)
 >>> [<matplotlib.lines.Line2D at 0x23ee0bf0b38>]
-![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/04.Python-for-Data-Visualization-Matplotlib/plots/first.png?raw=true "Plot")
 ```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/04.Python-for-Data-Visualization-Matplotlib/plots/first.png?raw=true "Plot")
+```python
+#SUBPLOT TO PLOT MULTIPLE PLOTS
+plt.subplot(1,2,1)
+plt.plot(x,y,'r')
+
+plt.subplot(1,2,2)
+plt.plot(y,x,'b')
+>>> [<matplotlib.lines.Line2D at 0x23ee1340d68>]
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/04.Python-for-Data-Visualization-Matplotlib/plots/subplot.png?raw=true "Plot")
