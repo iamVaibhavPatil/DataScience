@@ -1302,7 +1302,7 @@ We can use the matplotlib in the Jupyter notebook. There are 2 ways to create ma
 
 When we are not using Jupyter notebook, we need to explicitely call `plot.show()` method.
 
-```
+```python
 # IMPORT
 import matplotlib.pyplot as plt
 
