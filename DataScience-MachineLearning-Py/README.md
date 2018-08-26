@@ -1352,7 +1352,7 @@ axes.set_title('Title')
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/04.Python-for-Data-Visualization-Matplotlib/plots/first.png?raw=true "Plot")
 ```python
-#SUBPLOT
+#PLACING THE PLOTS WITHIN
 fig = plt.figure()
 
 axes1 = fig.add_axes([0.1,0.1,0.8,0.8])
@@ -1365,3 +1365,17 @@ axes2.set_title('SMALLER PLOT')
 >>> Text(0.5,1,'SMALLER PLOT')
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/04.Python-for-Data-Visualization-Matplotlib/plots/oopsmall.png?raw=true "Plot")
+```python
+#SUBPLOTS
+fig,axes = plt.subplots(nrows=1,ncols=2)
+
+# AXIS IS THE ARRAYS OF MATPLOTLIB AXIS OBJECTS
+axes[0].plot(x,y)
+axes[0].set_title('First Plot')
+axes[1].plot(y,x)
+axes[1].set_title('Second Plot')
+
+# TO AVOID OVERLAPPING
+plt.tight_layout()
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/04.Python-for-Data-Visualization-Matplotlib/plots/subplot2.png?raw=true "Plot")
