@@ -874,3 +874,12 @@ G2	    1	-0.031579	0.649826
 df.loc['G2'].loc[2]['A']
 >>> 2.154846443259472
 ```
+
+`Cross-section(xs)` method in the dataframe. Lets value of row 1 from level Num.
+```
+df.xs(1,level='Num')
+>>>
+Groups	A	        B	
+G1	    -0.993263	0.196800
+G2	    -0.031579	0.649826
+```
