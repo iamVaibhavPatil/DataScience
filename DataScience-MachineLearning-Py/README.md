@@ -1282,6 +1282,8 @@ sqldf
 ## Pandas Exercise
 
 ### SF Salary 
-
-
+See the code
 ### Ecommerce Purchase
+See the code
+
+# Python for Data Visualization - Matplotlib
