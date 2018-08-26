@@ -1022,3 +1022,113 @@ Sales	count	2.000000	2.000000	2.000000
         75%	    323.250000	180.000000	286.000000
         max	    350.000000	200.000000	340.000000
 ```
+
+## Merging, Joining and Concatenating
+pd.merge
+pd.join
+pd.concat
+
+## Operations
+
+```
+import numpy as np
+import pandas as pd
+df = pd.DataFrame({'col1':[1,2,3,4],
+                   'col2':[444,555,666,444],
+                   'col3':['abc','def','ghi','xyz']})
+df.head()
+>>>
+    col1	col2	col3
+0	1	    444	    abc
+1	2	    555	    def
+2	3	    666	    ghi
+3	4	    444	    xyz
+```
+
+**Unique** - Getting unique values or number of unique values. We can use `unique` or `nunique`.
+
+```
+df['col2'].unique()
+>>> array([444, 555, 666], dtype=int64)
+
+df['col2'].nunique()
+>>> 3
+```
+
+**value_counts** - How many times each value appeared in the result.
+```
+df['col2'].value_counts()
+>>>
+444    2
+555    1
+666    1
+Name: col2, dtype: int64
+
+df[df['col1']>2]
+>>>
+	col1	col2	col3
+2	3	    666	    ghi
+3	4	    444	    xyz
+
+df[(df['col1']>2) & (df['col2']==444)]
+>>>
+    col1	col2	col3
+3	4	    444	    xyz
+```
+
+**apply** - Broadcast a function to each element int the DataFrame. We can create a function and apply it to entire DataFrame or single column.
+
+This is the most powerful functions in pandas.
+
+```
+def times2(x):
+    return x*2
+
+df.apply(times2)
+
+	col1	col2	col3
+0	2	    888	    abcabc
+1	4	    1110	defdef
+2	6	    1332	ghighi
+3	8	    888	    xyzxyz
+
+# APPLY a LAMBDA Expression
+df['col3'].apply(lambda x: x*2)
+>>>
+0    abcabc
+1    defdef
+2    ghighi
+3    xyzxyz
+Name: col3, dtype: object
+```
+
+**drop** - Remove column
+
+```
+df.drop('col1', axis=1)
+>>>
+	col2	col3
+0	444	    abc
+1	555	    def
+2	666	    ghi
+3	444	    xyz
+
+df.columns
+>>>
+Index(['col1', 'col2', 'col3'], dtype='object')
+
+df.index
+>>>
+RangeIndex(start=0, stop=4, step=1)
+```
+
+**sort_values(by='col')** - Sort Values by column names.
+```
+df.sort_values(by='col2')
+>>>
+    col1	col2	col3
+0	1	    444	    abc
+3	4	    444	    xyz
+1	2	    555	    def
+2	3	    666	    ghi
+```
