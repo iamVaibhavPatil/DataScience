@@ -797,7 +797,7 @@ df.reset_index()
 ```
 
 We can also set the index to new values as below. We will create new column states and add it in the DataFrame.
-We will use `set_index(column_name)`-
+We will use `set_index(column_name)`. This will override the old index with new one.
 
 ```
 newind = 'CA NY WY OR CO'.split()
@@ -820,4 +820,57 @@ WY	    0.807706	0.072960	0.638787	0.329646	WY
 OR	    -0.497104	-0.754070	-0.943406	0.484752	OR
 CO	    -0.116773	1.901755	0.238127	1.996652	CO
 ```
-This will override the old index and add new one.
+
+**MultiIndex and Index Hierarchy** - 
+
+```
+# INDEX LEVELS
+outside = ['G1','G1','G1','G2','G2','G2']
+inside = [1,2,3,1,2,3]
+#CREATE A LIST OF TUPLES
+hier_index = list(zip(outside,inside))
+hier_index = pd.MultiIndex.from_tuples(hier_index)
+
+# CREATE MULTI-LEVEL DATAFRAME
+df = pd.DataFrame(randn(6,2), hier_index,['A','B'])
+
+df
+>>>
+        A	        B
+G1	1	-0.993263	0.196800
+    2	-1.136645	0.000366
+    3	1.025984	-0.156598
+G2	1	-0.031579	0.649826
+    2	2.154846	-0.610259
+    3	-0.755325	-0.346419
+
+df.loc['G1'].loc[1]
+>>>
+A   -0.993263
+B    0.196800
+Name: 1, dtype: float64
+```
+
+We can name these levels of rows-
+
+```
+# DATATYPES OF INDEX IN PANDAS
+df.index.names
+>>> FrozenList([None, None])
+
+# NOW SET THE NEW DATATYPES
+df.index.names = ['Groups','Num']
+df
+>>>
+Groups	Num A	        B		
+G1	    1	-0.993263	0.196800
+        2	-1.136645	0.000366
+        3	1.025984	-0.156598
+G2	    1	-0.031579	0.649826
+        2	2.154846	-0.610259
+        3	-0.755325	-0.346419
+
+# SELECT PERTICULAR VALUE
+df.loc['G2'].loc[2]['A']
+>>> 2.154846443259472
+```
