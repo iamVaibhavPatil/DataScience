@@ -1507,3 +1507,10 @@ sns.pairplot(tips)
 sns.pairplot(tips,hue='sex',palette='coolwarm')
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/pairplot_hue.png?raw=true "Plot")
+
+**rugplot** - Similar to distplot but instead of histogram, it plot the rugs of the data.
+
+```python
+sns.rugplot(tips['total_bill'])
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/rugplot.png?raw=true "Plot")
