@@ -1492,3 +1492,18 @@ sns.distplot(tips['total_bill'],kde=False,bins=40)
 sns.jointplot(x='total_bill',y='tip',data=tips,kind='scatter')
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/joinplot.png?raw=true "Plot")
+
+**pairplot** - Plot pairwise relationship across entire DataFrame, atleast for the numerical columns. It basically does joinplot for everypossible combination of numerical columns on the DataFrame.
+
+It also accepts `hue` arguments in which we will pass the categorial column. For example - Sex - Male/Female. It then will show coloring for the categories of the data.
+
+```
+sns.pairplot(tips)
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/pairplot.png?raw=true "Plot")
+
+```python
+# With hue and palette
+sns.pairplot(tips,hue='sex',palette='coolwarm')
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/pairplot_hue.png?raw=true "Plot")
