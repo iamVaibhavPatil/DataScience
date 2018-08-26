@@ -1321,5 +1321,5 @@ y
 # FUNCTIONAL
 plt.plot(x,y)
 >>> [<matplotlib.lines.Line2D at 0x23ee0bf0b38>]
-![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/04.Python-for-Data-Visualization-Matplotlib/plots/first.png?raw=true "Plot")
 ```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/04.Python-for-Data-Visualization-Matplotlib/plots/first.png?raw=true "Plot")
