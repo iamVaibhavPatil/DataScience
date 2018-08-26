@@ -1287,3 +1287,39 @@ See the code
 See the code
 
 # Python for Data Visualization - Matplotlib
+MatplotLib is the most popular plotting libraries for Python. It was designed to have similar feel to MATLAB's graphical plotting library.
+
+We can install using -
+```
+conda install matplotlib
+#OR
+pip install matplotlib
+```
+
+We can use the matplotlib in the Jupyter notebook. There are 2 ways to create matplotlib-  
+- Function method  way
+- Object Oriented way  
+
+When we are not using Jupyter notebook, we need to explicitely call `plot.show()` method.
+
+```
+# IMPORT
+import matplotlib.pyplot as plt
+
+# ENABLE TO SEE MATPLOTLIB INSIDE JUPYTER NOTEBOOK
+%matplotlib inline
+
+# USING NUMPY CREATE DATAPOINTS
+import numpy as np
+x = np.linspace(0,5,11)
+y = x ** 2
+x
+>>> array([0. , 0.5, 1. , 1.5, 2. , 2.5, 3. , 3.5, 4. , 4.5, 5. ])
+y
+>>> array([ 0.  ,  0.25,  1.  ,  2.25,  4.  ,  6.25,  9.  , 12.25, 16.  , 20.25, 25.  ])
+
+# FUNCTIONAL
+plt.plot(x,y)
+>>> [<matplotlib.lines.Line2D at 0x23ee0bf0b38>]
+![Alt text](https://github.com/vaibhavpatilai/SpringFramework/blob/master/RetroBoard/first.PNG?raw=true "Plot")
+```
