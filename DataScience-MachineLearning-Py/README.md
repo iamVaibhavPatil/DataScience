@@ -1520,3 +1520,5 @@ sns.rugplot(tips['total_bill'])
 sns.kdeplot(tips['total_bill'])
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/kde.png?raw=true "Plot")
+
+### Categorical Plots
