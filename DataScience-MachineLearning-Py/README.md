@@ -1318,7 +1318,7 @@ x
 y
 >>> array([ 0.  ,  0.25,  1.  ,  2.25,  4.  ,  6.25,  9.  , 12.25, 16.  , 20.25, 25.  ])
 
-# FUNCTIONAL
+# FUNCTIONAL WAY
 plt.plot(x,y)
 >>> [<matplotlib.lines.Line2D at 0x23ee0bf0b38>]
 ```
@@ -1333,3 +1333,35 @@ plt.plot(y,x,'b')
 >>> [<matplotlib.lines.Line2D at 0x23ee1340d68>]
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/04.Python-for-Data-Visualization-Matplotlib/plots/subplot.png?raw=true "Plot")
+
+Above is the functional way to create plots. Lets dive into Object oriented way to creating plottings. In Object Oriented ploting, we have more control over the placings of the graphs. We create a figure and add axes to it.
+
+```python
+# OBJECT ORIENTED METHOD
+fig = plt.figure()
+
+# CREATE CANVAS BY GIVING AXES - LEFT, BOTTOM, WIDTH, HEIGHT
+axes = fig.add_axes([0.1,0.1,0.8,0.8])
+
+axes.plot(x,y)
+axes.set_xlabel('X Label')
+axes.set_ylabel('Y Label')
+axes.set_title('Title')
+
+>>> Text(0.5,1,'Title')
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/04.Python-for-Data-Visualization-Matplotlib/plots/first.png?raw=true "Plot")
+```python
+#SUBPLOT
+fig = plt.figure()
+
+axes1 = fig.add_axes([0.1,0.1,0.8,0.8])
+axes2 = fig.add_axes([0.2,0.5,0.4,0.3])
+
+axes1.plot(x,y,'r')
+axes1.set_title('LARGER PLOT')
+axes2.plot(y,x,'b')
+axes2.set_title('SMALLER PLOT')
+>>> Text(0.5,1,'SMALLER PLOT')
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/04.Python-for-Data-Visualization-Matplotlib/plots/oopsmall.png?raw=true "Plot")
