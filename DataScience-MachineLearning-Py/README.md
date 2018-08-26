@@ -1379,3 +1379,14 @@ axes[1].set_title('Second Plot')
 plt.tight_layout()
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/04.Python-for-Data-Visualization-Matplotlib/plots/subplot2.png?raw=true "Plot")
+
+### Figure Size, Aspect Ratio and DPI -
+Matplotlib allows you to control these things. We can do this for plot and subplots.
+
+```
+fig = plt.figure(figsize=(8,2), dpi=100)
+
+ax = fig.add_axes([0,0,1,1])
+ax.plot(x,y)
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/04.Python-for-Data-Visualization-Matplotlib/plots/dpi.png?raw=true "Plot")
