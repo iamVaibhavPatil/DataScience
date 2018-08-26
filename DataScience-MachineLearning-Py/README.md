@@ -1402,3 +1402,23 @@ ax.plot(x,x**3,label='X Cubed')
 ax.legend() # WE CAN PASS THE LOCATION NUMBER AS WELL
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/04.Python-for-Data-Visualization-Matplotlib/plots/legend.png?raw=true "Plot")
+
+### Customizing Options - Settings Lines Colors, Lines sizes
+
+```python
+fig = plt.figure()
+
+ax = fig.add_axes([0,0,1,1])
+
+# color - WE CAN ADD COLOR OR RGB HEX CODE AS WELL
+# linewidth(lw) - Default is 1
+# alpha(0 to 1) - controls, how transparent line is.
+# linestyle(ls) - Linestyle whether dash(--),dash-dotted(-.), steps
+# marker - marker on line. We can show o,+,1
+# markersize - size of marker on line
+# markerfacecolor - 
+# markeredgewidth -
+# markeredgecolor -
+ax.plot(x,y,color='purple',lw=3, ls='-',marker='o',markersize=10)
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/04.Python-for-Data-Visualization-Matplotlib/plots/plotstyle.png?raw=true "Plot")
