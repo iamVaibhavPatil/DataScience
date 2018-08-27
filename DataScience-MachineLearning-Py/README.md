@@ -1550,7 +1550,7 @@ sns.countplot(x='sex',data=tips)
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/countplot.png?raw=true "Plot")
 
-**boxplot** - Here the dots are outliers, and it shows the total bill on each day.
+**boxplot** - It shows distribution of data across category. Here the dots are outliers, and it shows the total bill on each day.
 ```python
 sns.boxplot(x='day',y='total_bill',data=tips)
 ```
@@ -1562,4 +1562,25 @@ sns.boxplot(x='day',y='total_bill',data=tips,hue='smoker')
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/boxplot_hue.png?raw=true "Plot")
 
-****
+**violinplot** - Violin plot are similar to boxplot, they also show the distribution of data across categories.
+```python
+sns.violinplot(x='day',y='total_bill',data=tips)
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/violinplot.png?raw=true "Plot")
+
+**stripplot** - Stripplot will draw a scatter graph where one variable is categorical. We will not easily know the number of points stacked on eachother. To show more robust points, we need to add one argument - `jitter=True`. We also have `hue` and `split` parameters.
+```python
+sns.stripplot(x='day',y='total_bill',data=tips)
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/stripplot.png?raw=true "Plot")
+
+```python
+sns.stripplot(x='day',y='total_bill',data=tips,jitter=True)
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/stripplot_jitter.png?raw=true "Plot")
+
+**swarmplot** - Swarmplot is combination of violin plot and stripplot. It shows more clear distribution of the data.
+```python
+sns.swarmplot(x='day',y='total_bill',data=tips)
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/swarmplot.png?raw=true "Plot")
