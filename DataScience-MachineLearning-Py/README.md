@@ -1595,6 +1595,8 @@ sns.factorplot(x='day',y='total_bill',data=tips,kind='bar')
 ### Matrix Plots
 Matrix plots helps us plot the matrix data, primararily heatmaps of the data.
 
+**heatmap** -  
+
 ```python
 import seaborn as sns
 %matplotlib inline
@@ -1661,3 +1663,10 @@ sns.heatmap(fp)
 
 This heatmap shows, as the year go by more people travel by plane and number of passengers increased. The most popular months are Jun, July, Aug. We can also add linecolor, linewidths to have more prominent display.
 
+**clustermap** - Uses hierarchical clustering to produce a cluster version of the heatmap. It tries to cluster rows and columns based on the similarity.
+```python
+sns.clustermap(fp)
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/clustermap.png?raw=true "Plot")
+
+In above graph, we can see months and year are out of order and are clustered together.
