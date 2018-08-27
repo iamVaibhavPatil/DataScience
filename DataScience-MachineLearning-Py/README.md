@@ -1670,3 +1670,50 @@ sns.clustermap(fp)
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/clustermap.png?raw=true "Plot")
 
 In above graph, we can see months and year are out of order and are clustered together.
+
+### Grids
+
+We will use iris data. Iris data is data related to the bunch of different flowers.
+```python
+import seaborn as sns
+%matplotlib inline
+iris = sns.load_dataset('iris')
+iris.head()
+>>>
+	sepal_length	sepal_width	petal_length	petal_width	species
+0	5.1	            3.5	        1.4	            0.2	        setosa
+1	4.9	            3.0	        1.4	            0.2	        setosa
+2	4.7	            3.2	        1.3	            0.2	        setosa
+3	4.6	            3.1	        1.5	            0.2	        setosa
+4	5.0	            3.6	        1.4	            0.2	        setosa
+
+iris['species'].unique()
+>>> array(['setosa', 'versicolor', 'virginica'], dtype=object)
+```
+
+**PairGrid** - Pariplot shows the distribution pair of the data across all possible combinations. Here we will create a `PairGrid`. Pariplot is basically a simplified version of pairgrid in which many of the things are automated. In PairGrid, we have more control over the disply.
+We can choose what type of plot we want on the grid.
+
+```python
+sns.PairGrid(iris)
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/PairGrid_init.png?raw=true "Plot")
+
+Lets add bunch of different plots.
+```python
+g = sns.PairGrid(iris)
+g.map_diag(sns.distplot)
+g.map_upper(plt.scatter)
+g.map_lower(sns.kdeplot)
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/PairGrid_multiple.png?raw=true "Plot")
+
+**FacetGrid** -
+```python
+tips = sns.load_dataset('tips') 
+g = sns.FacetGrid(data=tips,col='time',row='smoker')
+g.map(sns.distplot,'total_bill')
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/facetgrid.png?raw=true "Plot")
+
+### 
