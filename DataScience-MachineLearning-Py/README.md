@@ -1592,4 +1592,72 @@ sns.factorplot(x='day',y='total_bill',data=tips,kind='bar')
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/factorplot_bar.png?raw=true "Plot")
 
-### Categorical Plots
+### Matrix Plots
+Matrix plots helps us plot the matrix data, primararily heatmaps of the data.
+
+```python
+import seaborn as sns
+%matplotlib inline
+# LOAD TIPS DATA
+tips = sns.load_dataset('tips')
+tips.head(5)
+>>>
+	total_bill	tip	sex	smoker	day	time	size
+0	16.99	1.01	Female	No	Sun	Dinner	2
+1	10.34	1.66	Male	No	Sun	Dinner	3
+2	21.01	3.50	Male	No	Sun	Dinner	3
+3	23.68	3.31	Male	No	Sun	Dinner	2
+4	24.59	3.61	Female	No	Sun	Dinner	4
+
+#LOAD FLIGHTS DATA
+flights = sns.load_dataset('flights')
+flights.head(5)
+>>>
+    year	month	    passengers
+0	1949	January	    112
+1	1949	February	118
+2	1949	March	    132
+3	1949	April	    129
+4	1949	May	        121
+```
+In order to show the correct heatmaps, the data should be in the correct matrix format. Means, it should have relationship between column and rows. So, we will first convert tips data to `pivot_table` form. Once data is in the matrix form, we can call heatmaps on the data, so it will show the related data with some coeficiant color, so we know which data in the matrix colsely relates to eachother.
+```python
+tc = tips.corr()
+tc
+>>>
+	        total_bill	tip	        size
+total_bill	1.000000	0.675734	0.598315
+tip	        0.675734	1.000000	0.489299
+size	    0.598315	0.489299	1.000000
+
+# CALL HEATMAP
+sns.heatmap(tc)
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/heatmap.png?raw=true "Plot")
+
+We can also pass the annotation, which will annotate the color with actual numerical values
+```python
+sns.heatmap(tc, annot=True)
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/heatmap_annot.png?raw=true "Plot")
+
+Lets convert the flight data into a `pivot_table` of month/year with passengers as the values.
+```python
+fp = flights.pivot_table(index='month',columns='year',values='passengers')
+fp
+>>>
+year	    1949    1950	1951	1952	1953	1954	1955	1956	1957	1958	1959	1960
+month												
+January	    112 115	145	171	196	204	242	284	315	340	360	417
+February    118	126	150	180	196	188	233	277	301	318	342	391
+March	    132	141	178	193	236	235	267	317	356	362	406	419
+April	    129	135	163	181	235	227	269	313	348	348	396	461
+May	        121	125	172	183	229	234	270	318	355	363	420	472
+
+# PLOT HEATMAP
+sns.heatmap(fp)
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/flight_heatmap.png?raw=true "Plot")
+
+This heatmap shows, as the year go by more people travel by plane and number of passengers increased. The most popular months are Jun, July, Aug. We can also add linecolor, linewidths to have more prominent display.
+
