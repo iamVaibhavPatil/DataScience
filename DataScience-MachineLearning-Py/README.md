@@ -1579,8 +1579,16 @@ sns.stripplot(x='day',y='total_bill',data=tips,jitter=True)
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/stripplot_jitter.png?raw=true "Plot")
 
-**swarmplot** - Swarmplot is combination of violin plot and stripplot. It shows more clear distribution of the data.
+**swarmplot** - Swarmplot is combination of violin plot and stripplot. It shows more clear distribution of the data. Swarmplots are not good for large number of datasets, as points might go haywire and will not show correct distribution.
 ```python
 sns.swarmplot(x='day',y='total_bill',data=tips)
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/swarmplot.png?raw=true "Plot")
+
+**factorplot** - Factor plot will show plot based on the `kind` parameter. Kind paramters will tell which type of plot to disply.
+kind - bar,violin,strip, box etc.
+```python
+sns.factorplot(x='day',y='total_bill',data=tips,kind='bar')
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/factorplot_bar.png?raw=true "Plot")
+
