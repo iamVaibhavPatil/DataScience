@@ -1672,7 +1672,6 @@ sns.clustermap(fp)
 In above graph, we can see months and year are out of order and are clustered together.
 
 ### Grids
-
 We will use iris data. Iris data is data related to the bunch of different flowers.
 ```python
 import seaborn as sns
@@ -1716,4 +1715,13 @@ g.map(sns.distplot,'total_bill')
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/facetgrid.png?raw=true "Plot")
 
-### 
+### Regression Plots
+Regression plots show the regression of data. **lmplot** will helps us show the data on the plots. Seaborn under the hood uses matplot libs regression plot. We can customized it by passing the keyward arguments.
+```python
+import seaborn as sns
+%matplotlib inline
+tips = sns.load_dataset('tips')
+tips.head()
+sns.lmplot(x='total_bill',y='tip',data=tips,hue='sex',markers=['o','v'])
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/lmplot.png?raw=true "Plot")
