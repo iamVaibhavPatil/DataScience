@@ -1762,3 +1762,26 @@ df2.head()
 df1['A'].hist(bins=30)
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/06.Python-for-Data-Visualization-Pandas-Built-in-Data-Viz/plots/hist.png?raw=true "Plot")
+
+We can also plot by using `plot` method and passing the `kind` argument.
+```python
+df1['A'].plot(kind='hist')
+# OR
+df1['A'].plot.hist() # WE WILL USE THIS METHOD THROUGHTOUT
+
+# AREA PLOT
+df2.plot.area()
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/06.Python-for-Data-Visualization-Pandas-Built-in-Data-Viz/plots/area.png?raw=true "Plot")
+
+```python
+# BAR - INDEX(ROW) SHOULD be CATEGORICAL
+df2.plot.bar()
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/06.Python-for-Data-Visualization-Pandas-Built-in-Data-Viz/plots/bar.png?raw=true "Plot")
+
+```python
+# LINE PLOT
+df1.plot.line()
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/06.Python-for-Data-Visualization-Pandas-Built-in-Data-Viz/plots/line.png?raw=true "Plot")
