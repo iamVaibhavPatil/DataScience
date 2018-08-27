@@ -1725,3 +1725,6 @@ tips.head()
 sns.lmplot(x='total_bill',y='tip',data=tips,hue='sex',markers=['o','v'])
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/lmplot.png?raw=true "Plot")
+
+
+# Python for Data Visualization - Pandas Built-in Data Viz
