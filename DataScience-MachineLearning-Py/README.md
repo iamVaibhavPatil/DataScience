@@ -1592,3 +1592,4 @@ sns.factorplot(x='day',y='total_bill',data=tips,kind='bar')
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/factorplot_bar.png?raw=true "Plot")
 
+### Categorical Plots
