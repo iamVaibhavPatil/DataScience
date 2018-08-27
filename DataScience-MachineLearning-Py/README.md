@@ -1543,3 +1543,23 @@ import numpy as np
 sns.barplot(x='sex',y='total_bill',data=tips, estimator=np.std)
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/barplot.png?raw=true "Plot")
+
+**countplot** - Countplot is similar to barplot, but estimator is explicitly counting the number of occurances. We need to set only x values.
+```python
+sns.countplot(x='sex',data=tips)
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/countplot.png?raw=true "Plot")
+
+**boxplot** - Here the dots are outliers, and it shows the total bill on each day.
+```python
+sns.boxplot(x='day',y='total_bill',data=tips)
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/boxplot.png?raw=true "Plot")
+
+Below example shows the box plot with another variations using hue. It shows that the total_bill and smoker relations
+```python
+sns.boxplot(x='day',y='total_bill',data=tips,hue='smoker')
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/boxplot_hue.png?raw=true "Plot")
+
+****
