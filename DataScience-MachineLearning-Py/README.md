@@ -1522,3 +1522,24 @@ sns.kdeplot(tips['total_bill'])
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/kde.png?raw=true "Plot")
 
 ### Categorical Plots
+
+```python
+import seaborn as sns
+%matplotlib inline
+tips = sns.load_dataset('tips')
+tips.head()
+```
+
+Categorical plots helps plot categories data against a estimated function like avg, sum, std.
+
+**barplot** - Plot for categorical data against numerical data. We can think of it as visualization of groupBy action.
+Default estimator function is average. We can change it to anything, we want to set.
+```python
+# Average by Default
+sns.barplot(x='sex',y='total_bill',data=tips, estimator=np.std)
+
+# Change the Estimator function
+import numpy as np
+sns.barplot(x='sex',y='total_bill',data=tips, estimator=np.std)
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/05.Python-for-Data-Visualization-Seaborn/plots/barplot.png?raw=true "Plot")
