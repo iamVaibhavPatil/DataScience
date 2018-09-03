@@ -1785,3 +1785,44 @@ df2.plot.bar()
 df1.plot.line()
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/06.Python-for-Data-Visualization-Pandas-Built-in-Data-Viz/plots/line.png?raw=true "Plot")
+
+```python
+# SCATTER
+df1.plot.scatter(x='A', y='B')
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/06.Python-for-Data-Visualization-Pandas-Built-in-Data-Viz/plots/scatter.png?raw=true "Plot")
+
+```python
+# Show 3 Dimensional scattered plot
+df1.plot.scatter(x='A', y='B',c='C',cmap='coolwarm')
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/06.Python-for-Data-Visualization-Pandas-Built-in-Data-Viz/plots/scatter_3D.png?raw=true "Plot")
+
+```python
+# BOX PLOT
+df2.plot.box()
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/06.Python-for-Data-Visualization-Pandas-Built-in-Data-Viz/plots/box.png?raw=true "Plot")
+
+```python
+# HEX PLOT
+df = pd.DataFrame(np.random.randn(1000,2),columns=['a','b'])
+df.head()
+>>>
+    a	        b
+0	0.651909	1.989180
+1	-1.128242	1.012460
+2	1.837604	-0.324401
+3	-0.101816	0.475093
+4	-0.319067	-0.085784
+
+df.plot.hexbin(x='a',y='b',gridsize=15)
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/06.Python-for-Data-Visualization-Pandas-Built-in-Data-Viz/plots/hexplot.png?raw=true "Plot")
+
+```python
+# KERNAL DENSITY ESTIMATION
+df2.plot.kde()
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/06.Python-for-Data-Visualization-Pandas-Built-in-Data-Viz/plots/kde.png?raw=true "Plot")
+
