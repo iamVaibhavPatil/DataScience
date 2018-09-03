@@ -1827,3 +1827,12 @@ df2.plot.kde()
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/06.Python-for-Data-Visualization-Pandas-Built-in-Data-Viz/plots/kde.png?raw=true "Plot")
 
 # Python for Data Visualization - Plotly and Cufflinks
+Plotly is a library that allows us to create interactive plots that we can use in dashboards or websites (you can save them as html files or static images). Cufflinks connects plotly with pandas.
+
+Install plotly and cufflinks
+```python
+pip install plotly
+pip install cufflinks
+```
+
+Plotly works offline as well as online. Please refer to the code notebook for more details.
