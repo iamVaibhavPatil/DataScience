@@ -1926,3 +1926,5 @@ choromap3 = go.Figure(data=[data],layout=layout)
 iplot(choromap3)
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/08.Python-for-Data-Visualization-Geographical-Plotting/plots/world-gdp.png?raw=true "Plot")
+
+# Data Capstone Project
