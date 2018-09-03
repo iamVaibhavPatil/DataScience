@@ -1840,6 +1840,8 @@ Plotly works offline as well as online. Please refer to the code notebook for mo
 # Python for Data Visualization - Geographical Plotting
 Geographical plotting is usually challenging due to the various formats of the data come in. We will focus on `plotly` for plotting.Matplotlib also has `basemap` extension.
 
+### USA and Nationwide data maps
+
 We will plot the geographical map of USA states. We will need to construct the data and layout.
 
 ```python
@@ -1895,3 +1897,32 @@ choromap2 = go.Figure(data = [data], layout=layout)
 iplot(choromap2)
 ```
 ![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/08.Python-for-Data-Visualization-Geographical-Plotting/plots/us-exports-2011.png?raw=true "Plot")
+
+### International data maps
+We can also plot the `world data` using the choropleth plotting. Lets plot data of world GDP.
+
+```python
+df = pd.read_csv('2014_World_GDP')
+df.head()
+>>>
+    COUNTRY	        GDP (BILLIONS)	CODE
+0	Afghanistan	    21.71	        AFG
+1	Albania	        13.40	        ALB
+2	Algeria	        227.80	        DZA
+3	American Samoa	0.75	        ASM
+4	Andorra	        4.80	        AND
+
+data = dict(type='choropleth',
+           locations = df['CODE'],
+           z = df['GDP (BILLIONS)'],
+           text = df['COUNTRY'],
+           colorbar = {'title':'GDP in Billions USD'})
+
+layout = dict(title = '2014 Global GDP',
+             geo = dict(showframe = False,
+                       projection = {'type':'mercator'}))
+
+choromap3 = go.Figure(data=[data],layout=layout)
+iplot(choromap3)
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/08.Python-for-Data-Visualization-Geographical-Plotting/plots/world-gdp.png?raw=true "Plot")
