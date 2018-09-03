@@ -1838,3 +1838,27 @@ pip install cufflinks
 Plotly works offline as well as online. Please refer to the code notebook for more details.
 
 # Python for Data Visualization - Geographical Plotting
+Geographical plotting is usually challenging due to the various formats of the data come in. We will focus on `plotly` for plotting.Matplotlib also has `basemap` extension.
+
+We will plot the geographical map of USA states. We will need to construct the data and layout.
+
+```python
+import plotly.plotly as py
+import plotly.graph_objs as go
+from plotly.offline import download_plotlyjs,init_notebook_mode,plot,iplot
+
+init_notebook_mode(connected=True)
+
+data = dict(type = 'choropleth',
+           locations = ['AZ','CA','NY'],
+           locationmode = 'USA-states',
+           colorscale = 'Portland',
+           text = ['text1','text2','text3'],
+           z = [1.0,2.0,3.0],
+           colorbar = {'title':'Colorbar Title Goes Here'})
+
+layout = dict(geo = {'scope':'usa'})
+choromap = go.Figure(data=[data],layout=layout)
+iplot(choromap)
+```
+![Alt text](https://github.com/vaibhavpatilai/DataScience/blob/master/DataScience-MachineLearning-Py/Code/08.Python-for-Data-Visualization-Geographical-Plotting/plots/usa-states.png?raw=true "Plot")
