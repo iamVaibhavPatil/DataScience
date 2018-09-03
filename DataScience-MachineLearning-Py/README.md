@@ -1836,3 +1836,5 @@ pip install cufflinks
 ```
 
 Plotly works offline as well as online. Please refer to the code notebook for more details.
+
+# Python for Data Visualization - Geographical Plotting
